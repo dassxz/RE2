@@ -1,0 +1,18 @@
+def download_objects365v2(url, dir, unzip=True, delete=False, threads=1):
+
+    def download_single(url, dir):
+
+        if 'train' in url:
+            saving_dir = dir / Path('train_zip')
+            mkdir_or_exist(saving_dir)
+            f = saving_dir / Path(url).name
+
+            unzip_dir = dir / Path('train')
+            mkdir_or_exist(unzip_dir)
+        elif 'val' in url:
+            saving_dir = dir / Path('val')
+            mkdir_or_exist(saving_dir)
+            f = saving_dir / Path(url).name
+
+            unzip_dir = dir / Path('val')
+            mkdir_or_exist(unzip_dir)
